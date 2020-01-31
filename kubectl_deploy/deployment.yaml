@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cp-slashbot
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cp-slashbot
+    spec:
+      containers:
+      - name: rubyapp
+        image: ministryofjustice/cloud-platform-slashbot:1.0
+        imagePullPolicy: Always
+        env:
+          - name: SLACK_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: slack-token
+                key: token
+          - name: SLACK_OAUTH
+            valueFrom:
+              secretKeyRef:
+                name: slack-token
+                key: oauth
+        ports:
+        - containerPort: 4567

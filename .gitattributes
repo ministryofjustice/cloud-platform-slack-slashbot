@@ -1,0 +1,2 @@
+secret.yaml filter=git-crypt diff=git-crypt
+cp-usernames.vars filter=git-crypt diff=git-crypt
