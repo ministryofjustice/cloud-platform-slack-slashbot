@@ -8,8 +8,8 @@ require_relative 'slack_messenger'
 use SlackAuthorizer
 
 HELP_RESPONSE = "Cloud Platform has below slash commands\n" \
-                "/openhours [day] [time]\n" \
-                "/cphelp\n"
+                "/cpopenhours [day] [time]\n" \
+                "/cp\n"
 
 OPEN_HOURS_EXPRESSION = /^([\w\.\-_]+) ([\w\.\-_]+) (.+)/
 
@@ -25,9 +25,9 @@ post '/slack/command' do
   puts params
   day, time = ""
   case params['command']
-  when '/cphelp' then
+  when '/cp' then
     message = HELP_RESPONSE
-  when '/openhours' then
+  when '/cpopenhours' then
     open_hours_response = OPEN_HOURS_RESPONSE
     case params['text']
     when OPEN_HOURS_EXPRESSION
