@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: helloworld-rubyapp-ingress
+spec:
+  tls:
+  - hosts:
+    - cp-slashbot.apps.live-1.cloud-platform.service.justice.gov.uk
+  rules:
+  - host: cp-slashbot.apps.live-1.cloud-platform.service.justice.gov.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: rubyapp-service
+          servicePort: 4567
