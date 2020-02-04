@@ -9,12 +9,12 @@ use SlackAuthorizer
 
 CPHELP_RESPONSE = "Cloud Platform has below slash commands\n" \
                 "/cpopenhours [day] [time]\n" \
-                "/cpauthenticate\n"
-                "/cpalerts\n"
-                "/cprdsmigrate\n"
-                "/cpgitcrypt\n"
-                "/cptrouble\n"
-                "/cpdsd\n"
+                "/cpauthenticate\n" \
+                "/cpalerts\n" \
+                "/cprdsmigrate\n" \
+                "/cpgitcrypt\n" \
+                "/cptrouble\n" \
+                "/cpdsd\n" \
                 "/cp\n"
 
 CPAUTHENTICATE_RESPONSE = "Here is the process for authenticating into the live cluster.\n" \
@@ -53,7 +53,7 @@ post '/slack/command' do
   day, time = ""
   case params['command']
   when '/cp' then
-    message = HELP_RESPONSE
+    message = CPHELP_RESPONSE
   when '/cpauthenticate' then
     message = CPAUTHENTICATE_RESPONSE
   when '/cpalerts' then
