@@ -1,11 +1,11 @@
 IMAGE := ministryofjustice/cloud-platform-slashbot
-TAG := 1.0
+TAG := 1.1
 
 .built-image: Dockerfile Gemfile Gemfile.lock makefile
 	docker build -t $(IMAGE) .
 	touch .built-image
 
-push: .built-image
+docker-push: .built-image
 	docker tag $(IMAGE) $(IMAGE):$(TAG)
 	docker push $(IMAGE):$(TAG)
 

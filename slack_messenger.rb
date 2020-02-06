@@ -22,9 +22,9 @@ class SlackMessenger
   def params
     {
       token: ENV['SLACK_OAUTH'],
-      channel: 'cloud-platform',
+      channel: 'ask-cloud-platform',
       text: @message,
-      as_user: false,
+      as_user: true,
       link_names: true
     }
   end
