@@ -10,8 +10,8 @@ spec:
         app: cp-slashbot
     spec:
       containers:
-      - name: rubyapp
-        image: ministryofjustice/cloud-platform-slashbot:1.0
+      - name: cp-slashbot
+        image: ministryofjustice/cloud-platform-slashbot:1.1
         imagePullPolicy: Always
         env:
           - name: SLACK_TOKEN
@@ -25,4 +25,4 @@ spec:
                 name: slack-token
                 key: oauth
         ports:
-        - containerPort: 4567
+        - containerPort: 5000

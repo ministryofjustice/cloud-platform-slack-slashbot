@@ -6,8 +6,8 @@ metadata:
     app: cp-slashbot-service
 spec:
   ports:
-  - port: 4567
+  - port: 5000
     name: http
-    targetPort: 4567
+    targetPort: 5000
   selector:
     app: cp-slashbot

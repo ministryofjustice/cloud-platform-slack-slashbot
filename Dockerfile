@@ -11,10 +11,10 @@ COPY Gemfile Gemfile.lock ./
 
 RUN bundle install
 
-COPY . ./
+COPY . /app
 
 RUN chown -R appuser:appgroup /app
 
 USER 1000
 
-CMD ["ruby", "app.rb"]
+CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "5000"]

@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: helloworld-rubyapp-ingress
+  name: cpslashbot-ingress
 spec:
   tls:
   - hosts:
@@ -12,5 +12,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: rubyapp-service
-          servicePort: 4567
+          serviceName: cp-slashbot-service
+          servicePort: 5000

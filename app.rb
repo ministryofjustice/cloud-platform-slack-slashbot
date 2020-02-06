@@ -80,7 +80,7 @@ post '/slack/command' do
   cpuser = false
   File.readlines('cp-usernames.vars').each {|username|
     if params['user_name'] == username.to_s.strip
-      SlackMessenger.deliver('@ruby_slack_bot', 'cloud-platform', message)
+      SlackMessenger.deliver(params['user_name'], 'ask-cloud-platform', message)
       cpuser = 1
       break
     end
