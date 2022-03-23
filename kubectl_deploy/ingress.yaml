@@ -1,16 +1,22 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: cpslashbot-ingress
+  annotations:
+    external-dns.alpha.kubernetes.io/set-identifier: "cpslashbot-ingress-cloud-platform-bots-green"
+    external-dns.alpha.kubernetes.io/aws-weight: "100"
 spec:
   tls:
   - hosts:
-    - cp-slashbot.apps.live-1.cloud-platform.service.justice.gov.uk
+    - cp-slashbot.apps.live.cloud-platform.service.justice.gov.uk
   rules:
-  - host: cp-slashbot.apps.live-1.cloud-platform.service.justice.gov.uk
+  - host: cp-slashbot.apps.live.cloud-platform.service.justice.gov.uk
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: cp-slashbot-service
-          servicePort: 5000
+          service:
+            name: cp-slashbot-service 
+            port:
+              number: 5000
